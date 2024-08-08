@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LunaPlanner</string>
+
+    <!--Main Activity-->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Registro</string>
+    
+    <!--Actividad registro-->
+    <string name="CrearCuentaTXT">Crear una Cuenta</string>
+    <string name="NombreEt">Nombre(S)</string>
+    <string name="CorreoEt">Correo Electronico</string>
+    <string name="Contrasena">Contraseña</string>
+    <string name="ConfirmarContreasenaEt">Confirmar contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="TengounaCuentaTXT">Tengo una Cuenta</string>
+</resources>
