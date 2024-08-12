@@ -62,8 +62,16 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuPrincipal.this, Agregar_Nota.class));
-                Toast.makeText(MenuPrincipal.this, "Agregar Nota", Toast.LENGTH_SHORT).show();
+
+                /* Obtenemos la información de los TextView */
+                String uid_usuario = UidPrincipal.getText().toString();
+                String correo_usuario = CorreoPrincipal.getText().toString();
+
+                /* Pasamos datos a la siguiente actividad */
+                Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
+                intent.putExtra("Uid", uid_usuario);
+                intent.putExtra("Correo", correo_usuario);
+                startActivity(intent);
             }
         });
 
@@ -117,7 +125,7 @@ public class MenuPrincipal extends AppCompatActivity {
             // El usuario ha iniciado sesión
             CargaDeDatos();
         } else {
-            // Redirigir al MainActivity si no ha iniciado sesión
+            // Lo dirigirá al MainActivity
             startActivity(new Intent(MenuPrincipal.this, MainActivity.class));
             finish();
         }
@@ -127,19 +135,22 @@ public class MenuPrincipal extends AppCompatActivity {
         Usuarios.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                // Si el usuario existe
                 if (snapshot.exists()) {
-                    // Ocultar el progress bar y mostrar los datos
+                    // El progressbar se oculta
                     progressBarDatos.setVisibility(View.GONE);
+                    // Los TextView se muestran
                     UidPrincipal.setVisibility(View.VISIBLE);
                     NombresPrincipal.setVisibility(View.VISIBLE);
                     CorreoPrincipal.setVisibility(View.VISIBLE);
 
-                    // Obtener los datos de Firebase
+                    // Obtener los datos
                     String uid = "" + snapshot.child("uid").getValue();
                     String nombres = "" + snapshot.child("nombres").getValue();
                     String correo = "" + snapshot.child("correo").getValue();
 
-                    // Mostrar los datos en los TextViews
+                    // Setear los datos en los respectivos TextView
                     UidPrincipal.setText(uid);
                     NombresPrincipal.setText(nombres);
                     CorreoPrincipal.setText(correo);
