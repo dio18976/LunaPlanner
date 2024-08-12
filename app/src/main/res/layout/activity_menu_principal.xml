@@ -16,8 +16,8 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:cardBackgroundColor="@color/colorPrimary"
+            android:layout_height="135dp"
+            app:cardBackgroundColor="@color/teal_700"
             app:cardUseCompatPadding="true"
             android:padding="0.2dp"
             app:cardCornerRadius="5dp">
@@ -42,6 +42,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"/>
+
+                <!--NOMBRES-->
+                <TextView
+                    android:id="@+id/UidPrincipal"
+                    android:text="@string/UidPrincipal"
+                    android:visibility="gone"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/worksans"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <!--NOMBRES-->
                 <TextView
@@ -102,6 +113,7 @@
                     <Button
                         android:id="@+id/AgregarNotas"
                         android:text="@string/AgregarNotas"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -127,6 +139,7 @@
                     <Button
                         android:id="@+id/ListarNotas"
                         android:text="@string/ListarNotas"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -162,6 +175,7 @@
                     <Button
                         android:id="@+id/Archivados"
                         android:text="@string/Archivados"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -187,6 +201,7 @@
                     <Button
                         android:id="@+id/Perfil"
                         android:text="@string/Perfil"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -222,6 +237,7 @@
                     <Button
                         android:id="@+id/AcercaDe"
                         android:text="@string/AcercaDe"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -247,6 +263,7 @@
                     <Button
                         android:id="@+id/CerrarSesion"
                         android:text="@string/CerrarSesion"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
