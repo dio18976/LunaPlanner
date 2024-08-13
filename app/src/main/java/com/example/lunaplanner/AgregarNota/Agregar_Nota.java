@@ -1,5 +1,6 @@
 package com.example.lunaplanner.AgregarNota;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -19,11 +20,19 @@ public class Agregar_Nota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_nota);
 
+        // Configuración de la ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(""); // Aquí puedes establecer un título
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         InicializarVariables();
         ObtenerDatos();
     }
 
-    private void InicializarVariables(){
+    private void InicializarVariables() {
         Uid_Usuario = findViewById(R.id.Uid_Usuario);
         Correo_usuario = findViewById(R.id.Correo_usuario);
         Fecha_hora_actual = findViewById(R.id.Fecha_hora_actual);
@@ -35,11 +44,17 @@ public class Agregar_Nota extends AppCompatActivity {
         Btn_Calendario = findViewById(R.id.Btn_Calendario);
     }
 
-    private void ObtenerDatos(){
+    private void ObtenerDatos() {
         String uid_recuperado = getIntent().getStringExtra("Uid");
         String correo_recuperado = getIntent().getStringExtra("Correo");
 
         Uid_Usuario.setText(uid_recuperado);
         Correo_usuario.setText(correo_recuperado);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }
